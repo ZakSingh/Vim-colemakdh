@@ -1,3 +1,7 @@
+# Vim Colemak-dh
+This is a modification of the excellent VSCode Vim extension with bindings for Colemak-dh. Based on https://github.com/ollyhayes/Colemak-Vim with a few minor additions (support for the explorer tab.)
+
+
 <h2 align="center"><img src="https://raw.githubusercontent.com/VSCodeVim/Vim/master/images/icon.png" height="128"><br>VSCodeVim</h2>
 <p align="center"><strong>Vim emulation for Visual Studio Code</strong></p>
 

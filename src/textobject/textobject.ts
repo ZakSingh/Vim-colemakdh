@@ -284,7 +284,7 @@ export class SelectAnExpandingBlock extends ExpandingSelection {
 @RegisterAction
 export class SelectInnerWord extends TextObject {
   override modes = [Mode.Normal, Mode.Visual];
-  keys = ['i', 'w'];
+  keys = ['l', 'w'];
 
   public async execAction(position: Position, vimState: VimState): Promise<IMovement> {
     let start: Position;
@@ -328,7 +328,7 @@ export class SelectInnerWord extends TextObject {
 @RegisterAction
 export class SelectInnerBigWord extends TextObject {
   override modes = [Mode.Normal, Mode.Visual];
-  keys = ['i', 'W'];
+  keys = ['l', 'W'];
 
   public async execAction(position: Position, vimState: VimState): Promise<IMovement> {
     let start: Position;
@@ -434,7 +434,7 @@ export class SelectSentence extends TextObject {
 
 @RegisterAction
 export class SelectInnerSentence extends TextObject {
-  keys = ['i', 's'];
+  keys = ['l', 's'];
 
   public async execAction(position: Position, vimState: VimState): Promise<IMovement> {
     let start: Position;
@@ -514,7 +514,7 @@ export class SelectParagraph extends TextObject {
 
 @RegisterAction
 export class SelectInnerParagraph extends TextObject {
-  keys = ['i', 'p'];
+  keys = ['l', 'p'];
 
   public async execAction(position: Position, vimState: VimState): Promise<IMovement> {
     vimState.currentRegisterMode = RegisterMode.LineWise;
@@ -571,7 +571,7 @@ export class SelectEntire extends TextObject {
 
 @RegisterAction
 export class SelectEntireIgnoringLeadingTrailing extends TextObject {
-  keys = ['i', 'e'];
+  keys = ['l', 'e'];
 
   public async execAction(position: Position, vimState: VimState): Promise<IMovement> {
     let start: Position = TextEditor.getDocumentBegin();
@@ -710,20 +710,20 @@ abstract class IndentObjectMatch extends TextObject {
 
 @RegisterAction
 class InsideIndentObject extends IndentObjectMatch {
-  keys = ['i', 'i'];
+  keys = ['l', 'l'];
   override modes = [Mode.Normal, Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
 }
 
 @RegisterAction
 class InsideIndentObjectAbove extends IndentObjectMatch {
-  keys = ['a', 'i'];
+  keys = ['a', 'l'];
   override modes = [Mode.Normal, Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
   override includeLineAbove = true;
 }
 
 @RegisterAction
 class InsideIndentObjectBoth extends IndentObjectMatch {
-  keys = ['a', 'I'];
+  keys = ['a', 'L'];
   override modes = [Mode.Normal, Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
   override includeLineAbove = true;
   override includeLineBelow = true;
@@ -986,7 +986,7 @@ abstract class SelectArgument extends TextObject {
 @RegisterAction
 export class SelectInnerArgument extends SelectArgument {
   override modes = [Mode.Normal, Mode.Visual];
-  keys = ['i', 'a'];
+  keys = ['l', 'a'];
 }
 
 @RegisterAction

@@ -37,9 +37,9 @@ class CommandOnly extends BaseCommand {
 class MoveToRightPane extends BaseCommand {
   modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
   keys = [
-    ['<C-w>', 'l'],
+    ['<C-w>', 'i'],
     ['<C-w>', '<right>'],
-    ['<C-w>', '<C-l>'],
+    ['<C-w>', '<C-i>'],
   ];
   override isJump = true;
 
@@ -55,9 +55,9 @@ class MoveToRightPane extends BaseCommand {
 class MoveToLowerPane extends BaseCommand {
   modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
   keys = [
-    ['<C-w>', 'j'],
+    ['<C-w>', 'n'],
     ['<C-w>', '<down>'],
-    ['<C-w>', '<C-j>'],
+    ['<C-w>', '<C-n>'],
   ];
   override isJump = true;
 
@@ -73,9 +73,9 @@ class MoveToLowerPane extends BaseCommand {
 class MoveToUpperPane extends BaseCommand {
   modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
   keys = [
-    ['<C-w>', 'k'],
+    ['<C-w>', 'e'],
     ['<C-w>', '<up>'],
-    ['<C-w>', '<C-k>'],
+    ['<C-w>', '<C-e>'],
   ];
   override isJump = true;
 
@@ -91,9 +91,9 @@ class MoveToUpperPane extends BaseCommand {
 class MoveToLeftPane extends BaseCommand {
   modes = [Mode.Normal, Mode.Visual, Mode.VisualLine];
   keys = [
-    ['<C-w>', 'h'],
+    ['<C-w>', 'm'],
     ['<C-w>', '<left>'],
-    ['<C-w>', '<C-h>'],
+    ['<C-w>', '<C-m>'],
   ];
   override isJump = true;
 

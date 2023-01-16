@@ -31,7 +31,7 @@ import { useSmartQuotes } from './plugins/targets/targetsConfig';
 import { ModeDataFor } from '../mode/modeData';
 
 /**
- * A movement is something like 'h', 'k', 'w', 'b', 'gg', etc.
+ * A movement is something like 'h', 'e', 'w', 'b', 'gg', etc.
  */
 
 export abstract class ExpandingSelection extends BaseMovement {
@@ -287,7 +287,7 @@ class MoveDownFoldFix extends MoveByScreenLineMaintainDesiredColumn {
 
 @RegisterAction
 class MoveDown extends BaseMovement {
-  keys = [['j'], ['<down>'], ['<C-j>'], ['<C-n>']];
+  keys = [['n'], ['<down>'], ['<C-n>'], ['<C-k>']];
   override preservesDesiredColumn = true;
 
   public override async execAction(position: Position, vimState: VimState): Promise<Position> {
@@ -325,7 +325,7 @@ class MoveDown extends BaseMovement {
 
 @RegisterAction
 class MoveUp extends BaseMovement {
-  keys = [['k'], ['<up>'], ['<C-p>']];
+  keys = [['e'], ['<up>'], ['<C-p>']];
   override preservesDesiredColumn = true;
 
   public override async execAction(position: Position, vimState: VimState): Promise<Position> {
@@ -462,7 +462,7 @@ class ArrowsInReplaceMode extends BaseMovement {
 
 @RegisterAction
 class CommandNextSearchMatch extends BaseMovement {
-  keys = ['n'];
+  keys = ['k'];
   override isJump = true;
 
   public override async execAction(
@@ -517,7 +517,7 @@ class CommandNextSearchMatch extends BaseMovement {
 
 @RegisterAction
 class CommandPreviousSearchMatch extends BaseMovement {
-  keys = ['N'];
+  keys = ['K'];
   override isJump = true;
 
   public override async execAction(
@@ -723,7 +723,7 @@ class MoveLeft extends BaseMovement {
 
 @RegisterAction
 class MoveRight extends BaseMovement {
-  keys = [['l'], ['<right>'], [' ']];
+  keys = [['i'], ['<right>'], [' ']];
 
   public override async execAction(position: Position, vimState: VimState): Promise<Position> {
     const getRightWhile = (p: Position): Position => {
@@ -1113,7 +1113,7 @@ class MoveScreenLineCenter extends MoveByScreenLine {
 class MoveUpByDisplayLine extends MoveByScreenLine {
   override modes = [Mode.Normal, Mode.Visual];
   keys = [
-    ['g', 'k'],
+    ['g', 'e'],
     ['g', '<up>'],
   ];
   movementType: CursorMovePosition = 'up';
@@ -1125,7 +1125,7 @@ class MoveUpByDisplayLine extends MoveByScreenLine {
 class MoveDownByDisplayLine extends MoveByScreenLine {
   override modes = [Mode.Normal, Mode.Visual];
   keys = [
-    ['g', 'j'],
+    ['g', 'n'],
     ['g', '<down>'],
   ];
   movementType: CursorMovePosition = 'down';
@@ -1142,7 +1142,7 @@ class MoveDownByDisplayLine extends MoveByScreenLine {
 class MoveUpByScreenLineVisualLine extends MoveByScreenLine {
   override modes = [Mode.VisualLine];
   keys = [
-    ['g', 'k'],
+    ['g', 'e'],
     ['g', '<up>'],
   ];
   movementType: CursorMovePosition = 'up';
@@ -1154,7 +1154,7 @@ class MoveUpByScreenLineVisualLine extends MoveByScreenLine {
 class MoveDownByScreenLineVisualLine extends MoveByScreenLine {
   override modes = [Mode.VisualLine];
   keys = [
-    ['g', 'j'],
+    ['g', 'n'],
     ['g', '<down>'],
   ];
   movementType: CursorMovePosition = 'down';
@@ -1166,7 +1166,7 @@ class MoveDownByScreenLineVisualLine extends MoveByScreenLine {
 class MoveUpByScreenLineVisualBlock extends BaseMovement {
   override modes = [Mode.VisualBlock];
   keys = [
-    ['g', 'k'],
+    ['g', 'e'],
     ['g', '<up>'],
   ];
   override preservesDesiredColumn = true;
@@ -1195,7 +1195,7 @@ class MoveUpByScreenLineVisualBlock extends BaseMovement {
 class MoveDownByScreenLineVisualBlock extends BaseMovement {
   override modes = [Mode.VisualBlock];
   keys = [
-    ['g', 'j'],
+    ['g', 'n'],
     ['g', '<down>'],
   ];
   override preservesDesiredColumn = true;
@@ -1239,7 +1239,7 @@ class MoveScreenToRight extends MoveByScreenLine {
 @RegisterAction
 class MoveScreenToLeft extends MoveByScreenLine {
   override modes = [Mode.Normal, Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
-  keys = ['z', 'l'];
+  keys = ['z', 'i'];
   movementType: CursorMovePosition = 'left';
   override by: CursorMoveByUnit = 'character';
   override value = 1;
@@ -1271,7 +1271,7 @@ class MoveScreenToRightHalf extends MoveByScreenLine {
 @RegisterAction
 class MoveScreenToLeftHalf extends MoveByScreenLine {
   override modes = [Mode.Normal, Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
-  keys = ['z', 'L'];
+  keys = ['z', 'I'];
   movementType: CursorMovePosition = 'left';
   override by: CursorMoveByUnit = 'halfLine';
   override value = 1;
@@ -1296,7 +1296,7 @@ class MoveToLineFromViewPortTop extends MoveByScreenLine {
 
 @RegisterAction
 class MoveToLineFromViewPortBottom extends MoveByScreenLine {
-  keys = ['L'];
+  keys = ['I'];
   movementType: CursorMovePosition = 'viewPortBottom';
   override by: CursorMoveByUnit = 'line';
   override value = 1;
@@ -1484,7 +1484,7 @@ export class MoveFullWordBegin extends BaseMovement {
 
 @RegisterAction
 class MoveWordEnd extends BaseMovement {
-  keys = ['e'];
+  keys = ['j'];
 
   public override async execAction(position: Position, vimState: VimState): Promise<Position> {
     return position.nextWordEnd(vimState.document);
@@ -1502,7 +1502,7 @@ class MoveWordEnd extends BaseMovement {
 
 @RegisterAction
 class MoveFullWordEnd extends BaseMovement {
-  keys = ['E'];
+  keys = ['J'];
 
   public override async execAction(position: Position, vimState: VimState): Promise<Position> {
     return position.nextWordEnd(vimState.document, { wordType: WordType.Big });
@@ -1518,7 +1518,7 @@ class MoveFullWordEnd extends BaseMovement {
 
 @RegisterAction
 class MoveLastWordEnd extends BaseMovement {
-  keys = ['g', 'e'];
+  keys = ['g', 'j'];
 
   public override async execAction(position: Position, vimState: VimState): Promise<Position> {
     return position.prevWordEnd(vimState.document);
@@ -1527,7 +1527,7 @@ class MoveLastWordEnd extends BaseMovement {
 
 @RegisterAction
 class MoveLastFullWordEnd extends BaseMovement {
-  keys = ['g', 'E'];
+  keys = ['g', 'J'];
 
   public override async execAction(position: Position, vimState: VimState): Promise<Position> {
     return position.prevWordEnd(vimState.document, { wordType: WordType.Big });
@@ -1914,9 +1914,9 @@ export abstract class MoveInsideCharacter extends ExpandingSelection {
 @RegisterAction
 export class MoveInsideParentheses extends MoveInsideCharacter {
   keys = [
-    ['i', '('],
-    ['i', ')'],
-    ['i', 'b'],
+    ['l', '('],
+    ['l', ')'],
+    ['l', 'b'],
   ];
   charToMatch = '(';
 }
@@ -1985,9 +1985,9 @@ export abstract class MoveCurlyBrace extends MoveInsideCharacter {
 @RegisterAction
 export class MoveInsideCurlyBrace extends MoveCurlyBrace {
   keys = [
-    ['i', '{'],
-    ['i', '}'],
-    ['i', 'B'],
+    ['l', '{'],
+    ['l', '}'],
+    ['l', 'B'],
   ];
 }
 
@@ -2004,8 +2004,8 @@ export class MoveAroundCurlyBrace extends MoveCurlyBrace {
 @RegisterAction
 export class MoveInsideCaret extends MoveInsideCharacter {
   keys = [
-    ['i', '<'],
-    ['i', '>'],
+    ['l', '<'],
+    ['l', '>'],
   ];
   charToMatch = '<';
 }
@@ -2023,8 +2023,8 @@ export class MoveAroundCaret extends MoveInsideCharacter {
 @RegisterAction
 export class MoveInsideSquareBracket extends MoveInsideCharacter {
   keys = [
-    ['i', '['],
-    ['i', ']'],
+    ['l', '['],
+    ['l', ']'],
   ];
   charToMatch = '[';
 }
@@ -2180,7 +2180,7 @@ export abstract class MoveQuoteMatch extends BaseMovement {
 
 @RegisterAction
 class MoveInsideSingleQuotes extends MoveQuoteMatch {
-  keys = ['i', "'"];
+  keys = ['l', "'"];
   readonly charToMatch = "'";
   override includeQuotes = false;
 }
@@ -2194,7 +2194,7 @@ export class MoveAroundSingleQuotes extends MoveQuoteMatch {
 
 @RegisterAction
 class MoveInsideDoubleQuotes extends MoveQuoteMatch {
-  keys = ['i', '"'];
+  keys = ['l', '"'];
   readonly charToMatch = '"';
   override includeQuotes = false;
 }
@@ -2208,7 +2208,7 @@ export class MoveAroundDoubleQuotes extends MoveQuoteMatch {
 
 @RegisterAction
 class MoveInsideBacktick extends MoveQuoteMatch {
-  keys = ['i', '`'];
+  keys = ['l', '`'];
   readonly charToMatch = '`';
   override includeQuotes = false;
 }
@@ -2354,7 +2354,7 @@ abstract class MoveTagMatch extends ExpandingSelection {
 
 @RegisterAction
 export class MoveInsideTag extends MoveTagMatch {
-  keys = ['i', 't'];
+  keys = ['l', 't'];
   override includeTag = false;
 }
 

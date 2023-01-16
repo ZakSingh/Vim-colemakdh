@@ -464,7 +464,7 @@ class CommandEsc extends BaseCommand {
 @RegisterAction
 export class CommandInsertAtCursor extends BaseCommand {
   modes = [Mode.Normal];
-  keys = [['i'], ['<Insert>']];
+  keys = [['l'], ['<Insert>']];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     await vimState.setCurrentMode(Mode.Insert);
@@ -1121,7 +1121,7 @@ class CommandGoForwardInChangelist extends BaseCommand {
 @RegisterAction
 export class CommandInsertAtLastChange extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['g', 'i'];
+  keys = ['g', 'l'];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     vimState.cursorStopPosition = vimState.cursorStartPosition =
@@ -1134,7 +1134,7 @@ export class CommandInsertAtLastChange extends BaseCommand {
 @RegisterAction
 export class CommandInsertAtFirstCharacter extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['I'];
+  keys = ['L'];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     await vimState.setCurrentMode(Mode.Insert);
@@ -1146,7 +1146,7 @@ export class CommandInsertAtFirstCharacter extends BaseCommand {
 @RegisterAction
 export class CommandInsertAtLineBegin extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['g', 'I'];
+  keys = ['g', 'L'];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     await vimState.setCurrentMode(Mode.Insert);
@@ -1416,7 +1416,7 @@ export class ActionDeleteLastChar extends BaseCommand {
 @RegisterAction
 class ActionJoin extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['J'];
+  keys = ['N'];
   override createsUndoPoint = true;
   override runsOnceForEachCountPrefix = false;
 
@@ -1572,7 +1572,7 @@ class ActionJoin extends BaseCommand {
 @RegisterAction
 class ActionJoinVisualMode extends BaseCommand {
   modes = [Mode.Visual, Mode.VisualLine];
-  keys = ['J'];
+  keys = ['N'];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     const [start, end] = sorted(vimState.editor.selection.start, vimState.editor.selection.end);
@@ -1588,7 +1588,7 @@ class ActionJoinVisualMode extends BaseCommand {
 @RegisterAction
 class ActionJoinVisualBlockMode extends BaseCommand {
   modes = [Mode.VisualBlock];
-  keys = ['J'];
+  keys = ['N'];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     const [start, end] = sorted(vimState.cursorStartPosition, vimState.cursorStopPosition);
@@ -1601,7 +1601,7 @@ class ActionJoinVisualBlockMode extends BaseCommand {
 @RegisterAction
 class ActionJoinNoWhitespace extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['g', 'J'];
+  keys = ['g', 'N'];
   override createsUndoPoint = true;
 
   // gJ is essentially J without the edge cases. ;-)
@@ -1641,7 +1641,7 @@ class ActionJoinNoWhitespace extends BaseCommand {
 @RegisterAction
 class ActionJoinNoWhitespaceVisualMode extends BaseCommand {
   modes = [Mode.Visual, Mode.VisualLine, Mode.VisualBlock];
-  keys = ['g', 'J'];
+  keys = ['g', 'N'];
 
   public override async exec(position: Position, vimState: VimState): Promise<void> {
     const [start, end] = sorted(vimState.cursorStartPosition, vimState.cursorStopPosition);
@@ -1904,7 +1904,7 @@ class ActionShiftDVisualBlock extends BaseCommand {
 @RegisterAction
 class ActionGoToInsertVisualBlockMode extends BaseCommand {
   modes = [Mode.VisualBlock];
-  keys = ['I'];
+  keys = ['L'];
   override runsOnceForEveryCursor() {
     return false;
   }
@@ -2031,7 +2031,7 @@ abstract class ActionGoToInsertVisualLineModeCommand extends BaseCommand {
 @RegisterAction
 class ActionGoToInsertVisualLineMode extends ActionGoToInsertVisualLineModeCommand {
   modes = [Mode.VisualLine];
-  keys = ['I'];
+  keys = ['L'];
 
   getCursorRangeForLine(line: vscode.TextLine): Cursor {
     const startCharacterPosition = new Position(
@@ -2056,7 +2056,7 @@ class ActionGoToInsertVisualLineModeAppend extends ActionGoToInsertVisualLineMod
 @RegisterAction
 class ActionGoToInsertVisualMode extends ActionGoToInsertVisualLineModeCommand {
   modes = [Mode.Visual];
-  keys = ['I'];
+  keys = ['L'];
 
   getCursorRangeForLine(
     line: vscode.TextLine,
