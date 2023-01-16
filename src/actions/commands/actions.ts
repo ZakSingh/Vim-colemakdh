@@ -2476,7 +2476,7 @@ export class CommandUnicodeName extends BaseCommand {
 @RegisterAction
 class ActionTriggerHover extends BaseCommand {
   modes = [Mode.Normal];
-  keys = ['g', 'h'];
+  keys = ['g', 'm'];
   override runsOnceForEveryCursor() {
     return false;
   }

@@ -19,7 +19,7 @@ suite('motion line wrapping', () => {
       newTest({
         title: 'h wraps to previous line',
         start: ['line 1', '|line 2'],
-        keysPressed: 'h',
+        keysPressed: 'm',
         end: ['line |1', 'line 2'],
       });
 
