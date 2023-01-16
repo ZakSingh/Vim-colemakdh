@@ -4,12 +4,6 @@ This is a modification of the excellent VSCode Vim extension with bindings for C
 
 <h2 align="center"><img src="https://raw.githubusercontent.com/VSCodeVim/Vim/master/images/icon.png" height="128"><br>VSCodeVim</h2>
 <p align="center"><strong>Vim emulation for Visual Studio Code</strong></p>
-
-[![](https://vsmarketplacebadge.apphb.com/version/vscodevim.vim.svg)](http://aka.ms/vscodevim)
-[![](https://vsmarketplacebadge.apphb.com/installs-short/vscodevim.vim.svg)](https://marketplace.visualstudio.com/items?itemName=vscodevim.vim)
-[![](https://github.com/VSCodeVim/Vim/workflows/build/badge.svg?branch=master)](https://github.com/VSCodeVim/Vim/actions?query=workflow%3Abuild+branch%3Amaster)
-[![](https://img.shields.io/badge/vscodevim-slack-blue.svg?logo=slack)](https://vscodevim.herokuapp.com/)
-
 VSCodeVim is a Vim emulator for [Visual Studio Code](https://code.visualstudio.com/).
 
 - 🚚 For a full list of supported Vim features, please refer to our [roadmap](ROADMAP.md).
