@@ -1,6 +1,6 @@
 {
-  "name": "vim",
-  "displayName": "Vim",
+  "name": "vim-colemakdh",
+  "displayName": "Vim-colemakdh",
   "description": "Vim emulation for Visual Studio Code",
   "icon": "images/icon.png",
   "version": "1.24.3",
@@ -19,11 +19,11 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/VSCodeVim/Vim.git"
+    "url": "https://github.com/ZakSingh/Vim-colemakdh.git"
   },
-  "homepage": "https://github.com/VSCodeVim/Vim",
+  "homepage": "https://github.com/ZakSingh/Vim-colemakdh",
   "bugs": {
-    "url": "https://github.com/VSCodeVim/Vim/issues"
+    "url": "https://github.com/ZakSingh/Vim-colemakdh/issues"
   },
   "engines": {
     "vscode": "^1.74.0"
