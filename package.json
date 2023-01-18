@@ -655,7 +655,7 @@
         },
         "vim.easymotionDimColor": {
           "type": "string",
-          "default": "#777777",
+          "default": "#7A88CF",
           "markdownDescription": "Set a custom color for the easymotion dimmed characters when `#vim.easymotionDimBackground#` is set to true."
         },
         "vim.easymotionDimBackground": {

@@ -36,7 +36,7 @@ export class Configuration implements IConfiguration {
   easymotionMarkerForegroundColorTwoCharFirst = '#ffb400';
   easymotionMarkerForegroundColorTwoCharSecond = '#b98300';
   easymotionIncSearchForegroundColor = '#7fbf00';
-  easymotionDimColor = '#777777';
+  easymotionDimColor = '#7A88CF';
   easymotionDimBackground = true;
   easymotionMarkerFontWeight = 'bold';
   easymotionKeys = 'hklyuiopnm,qwertzxcvbasdgjf;';

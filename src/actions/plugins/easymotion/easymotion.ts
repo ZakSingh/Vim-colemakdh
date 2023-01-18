@@ -218,7 +218,7 @@ export class EasyMotion implements IEasyMotion {
   }
 
   private getEasymotionDimColor() {
-    return this.getMarkerColor(configuration.easymotionDimColor, '#777777');
+    return this.getMarkerColor(configuration.easymotionDimColor, '#7A88CF');
   }
 
   public updateDecorations(editor: vscode.TextEditor) {
